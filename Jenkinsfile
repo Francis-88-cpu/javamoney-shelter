@@ -5,7 +5,7 @@ pipeline {
         stage('checkout') {
             steps {
                 echo 'checking out from git'
-                git 'https://github.com/Francis-88-cpu/javamoney-shelter.git'
+                git branch: 'main', url: 'https://github.com/Francis-88-cpu/javamoney-shelter.git'
             }
         }
 
@@ -29,20 +29,9 @@ pipeline {
 
         stage('docker build') {
             steps {
-                echo 'docker build'
+                sh 'docker'
             }
         }
-
-        stage('docker login') {
-            steps {
-                echo 'docker login'
-            }
-        }
-
-        stage('docker push') {
-            steps {
-                echo 'docker'
-            }
-        }
+        
     }
 }
